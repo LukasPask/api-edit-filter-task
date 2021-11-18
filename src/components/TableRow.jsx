@@ -1,7 +1,7 @@
 import React from 'react';
 
 const TableRow = () => {
-  return <div></div>;
+  return <tr></tr>;
 };
 
 export default TableRow;

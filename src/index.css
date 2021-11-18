@@ -11,3 +11,18 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* resets */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* variables */
+:root {
+  --primary-color: #3d7dca;
+  --secondary-color: #ffcb05;
+  --delete-color: #ff0000;
+  --black-color: #000;
+  --white-color: #fff;
+}
