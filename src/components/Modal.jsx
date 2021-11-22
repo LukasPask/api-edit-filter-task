@@ -13,11 +13,11 @@ import {
 } from '../styles/Modal.style';
 
 const Modal = ({ children, onClose }) => {
-  // For validating so user would not leave if the stats is not saved
+  // For checking if user saved the stats before leaving. If stats not saved alert the user to save
   const validator =
     children.props.children[2].props.children.props.children[0].props.style
       .display;
-  // Exit function(if stats are saved user can leave the more detailed pokemon description)
+  // Exit function(if stats are saved user can leave the more detailed pokemon description(modal))
   const closeModal = () => {
     if (validator === 'none') {
       alert('Please save your Pokemon stats before leaving');
@@ -31,7 +31,7 @@ const Modal = ({ children, onClose }) => {
       closeModal();
     }
   };
-
+  // Component
   return ReactDOM.createPortal(
     <>
       <Overlay></Overlay>

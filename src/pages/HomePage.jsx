@@ -4,7 +4,8 @@ import Button from '../components/Button';
 import FilterInput from '../components/FilterInput';
 import Table from '../components/Table';
 import TableRow from '../components/TableRow';
-
+// Logic
+import HomePageLogic from '../logic/HomePageLogic';
 // Style
 import {
   StyledMain,
@@ -14,7 +15,7 @@ import {
   PokedexStatBox,
   PokemonAbilitiesBox,
 } from '../styles/HomePage.style';
-import HomePageLogic from './Logic/HomePageLogic';
+// Component
 const HomePage = () => {
   return (
     // Adding logic from HomePageLogic file

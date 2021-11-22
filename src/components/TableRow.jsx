@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 // Components
-import TableRowLogic from './Logic/TableRowLogic';
 import Modal from './Modal';
+// Logic
+import TableRowLogic from '../logic/TableRowLogic';
 // Style
 import {
   StyledTableRow,
@@ -14,6 +15,7 @@ import {
   EditButtonWrapper,
 } from '../styles/TableRow.style';
 
+// Component
 const TableRow = ({
   photo,
   pokemonName,

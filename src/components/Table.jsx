@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 // Style
 import { StyledTable, TableHead } from '../styles/Table.style';
-
+// Component
 const Table = ({ tableBody }) => {
   return (
     <StyledTable>

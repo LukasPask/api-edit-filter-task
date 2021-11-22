@@ -8,6 +8,8 @@ export const StyledTableRow = styled.tr`
       rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
     cursor: pointer;
     border-radius: 10px;
+    opacity: 0.8;
+    transition: 0.5s;
   }
 `;
 

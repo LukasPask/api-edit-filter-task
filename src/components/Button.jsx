@@ -7,6 +7,7 @@ import {
   DeleteButton,
 } from '../styles/Button.style';
 
+// Component
 const Button = ({
   text,
   action,

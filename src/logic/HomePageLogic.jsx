@@ -1,23 +1,25 @@
 import { useState } from 'react';
 // Logic (custom hooks)
-import useFetch from '../../hooks/useFetch';
+import useFetch from '../hooks/useFetch';
 
 const HomePageLogic = ({ render }) => {
   // Hooks
   // Random number generator
   // Array for later checking if pokemon ID already in array
   let randomNumbersArr = [];
-  const randomNumber = (maxNr) => {
+  // Function for random number generation
+  const randomNumber = (maxNum) => {
     // Generate random number
-    let random = (Math.random() * maxNr).toFixed();
+    let random = (Math.random() * maxNum).toFixed();
     // Check if number is already in array
+
     if (!randomNumbersArr.includes(random)) {
       randomNumbersArr.push(random);
       return random;
     } else {
-      if (randomNumbersArr.length < maxNr) {
+      if (randomNumbersArr.length < maxNum) {
         //Recursively generate number
-        return randomNumber(maxNr);
+        return randomNumber(maxNum);
       } else {
         alert('Congratulations you caught them all!!!');
         return false;
@@ -29,7 +31,7 @@ const HomePageLogic = ({ render }) => {
   const [randomNum, setRandomNum] = useState(randomNumber(897));
   // Pokemon filter by pokemon name
   const [filterPokemon, setFilterPokemon] = useState('');
-  //   Pokemon Data in users Pokedex
+  //   All pokemons in users Pokedex
   const [pokemonArr, setPokemonArr] = useState([]);
   //   Toggling between save button display
   const [showSaveButton, setShowSaveButton] = useState('none');
@@ -45,19 +47,26 @@ const HomePageLogic = ({ render }) => {
     error,
   } = useFetch(`https://pokeapi.co/api/v2/pokemon/${randomNum}/`);
   //   Custom functions
+  // Getting new pokemon in users pokedex
   const getNewPokemon = () => {
+    // Getting new random number
     setRandomNum(randomNumber(897));
+    // Adding pokemon to an existing pokemon array
     setPokemonArr([...pokemonArr, pokemon]);
   };
   //   Capitalizes first letter of given string and removes '-'
   const capitalizeFirstLetter = (string) => {
+    // Replaces - with ' '
     string = string.split('-').join(' ');
+    // Makes first letter upper case
     return string.charAt(0).toUpperCase() + string.slice(1);
   };
+
   // Delete pokemon on click
   const deletePokemon = (e) => {
     // Deleting pokemon that delete id and pokemon id matches
     setPokemonArr(
+      // Filtering the pokemons and returning only pokemons that delete ID does not match
       pokemonArr.filter((singlePokemon) => {
         return singlePokemon.id !== +e.target.dataset.deleteid;
       })
@@ -65,14 +74,20 @@ const HomePageLogic = ({ render }) => {
   };
   // Makes inputs disabled and shows edit pokemon button
   const saveNewInfo = () => {
+    // Makes save button display none
     setShowSaveButton('none');
+    // Makes edit button display none
     setShowEditPokemonButton('block');
+    // Turns off inputs so they can't be edited
     setInputToggler(true);
   };
   // Makes inputs enabled and shows save pokemon button
   const editPokemon = () => {
+    // Makes save button display none
     setShowSaveButton('block');
+    // Makes edit button display none
     setShowEditPokemonButton('none');
+    // Turns on inputs so they could be edited
     setInputToggler(false);
   };
   //   Changes value of the chosen stat

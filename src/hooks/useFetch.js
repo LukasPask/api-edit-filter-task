@@ -9,6 +9,7 @@ const useFetch = (endpoint) => {
   const [error, setError] = useState('');
 
   //   Side effects
+  // Fetching data from API
   useEffect(() => {
     axios
       .get(endpoint)

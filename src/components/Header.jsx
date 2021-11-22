@@ -1,7 +1,7 @@
 import React from 'react';
 // Style
 import { StyledHeader } from '../styles/Header.style';
-
+// Component
 const Header = () => {
   return (
     <StyledHeader>
